@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "plataforma-slo",
   "private": true,
   "scripts": {
     "build": "turbo run build",
