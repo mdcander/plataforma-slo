@@ -1,0 +1,65 @@
+GET http://127.0.0.1:4000/ping
+
+###
+POST http://localhost:4000/auth/login
+
+
+###
+POST http://127.0.0.1:4000/auth/registrar
+Content-Type: application/json
+
+{
+    "nome": "Ander Carvalho",
+    "email": "ander@mail.com",
+    "senha": "#Senha123",
+    "telefone": "(15) 365212324",
+    "celular": "(15) 99123123",
+    "cnpj_cpf": "27126394860",
+    "administrador": true
+}
+
+###
+POST http://127.0.0.1:4000/auth/login
+Content-Type: application/json
+
+{
+    "email": "ander@mail.com",
+    "senha": "#Senha123"
+}
+
+###
+GET http://127.0.0.1:4000/agendamentos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwibm9tZSI6Ikxhcmlzc2EgTWFub2VsYSIsImVtYWlsIjoibGEubWFub2VsYUBtYWlsLmNvbSIsInRlbGVmb25lIjoiKDUxKSAzNjUyMTIzMjQiLCJjZWx1bGFyIjoiKDUxKSA5OTEyMzEyMyIsImNucGpfY3BmIjoiMjcxMjYzOTQ4NjAiLCJhZG1pbmlzdHJhZG9yIjpmYWxzZSwiaWF0IjoxNzQ0ODExNTg1LCJleHAiOjE3NDYxMDc1ODV9.IetTzHuZ3zd5CYGjHC_paBedZ4DsnKIUxZ0n8YUCjnk
+
+###
+GET http://127.0.0.1:4000/profissionais
+
+###
+GET http://127.0.0.1:4000/servicos
+
+###
+POST http://127.0.0.1:4000/agendamentos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibm9tZSI6IkFuZGVyIENhcnZhbGhvIiwiZW1haWwiOiJhbmRlckBtYWlsLmNvbSIsInRlbGVmb25lIjoiKDE1KSAzNjUyMTIzMjQiLCJjZWx1bGFyIjoiKDE1KSAzNjUyMTIzMjQiLCJjbnBqX2NwZiI6IjI3Mzk4NzQ0ODYwIiwiYWRtaW5pc3RyYWRvciI6dHJ1ZSwiaWF0IjoxNzQ4OTAyNjYwLCJleHAiOjE3NTAxOTg2NjB9.SQqIGSYWIsxap0awmW4SuVgXeQYx1mtwPZB9K2Ydsx0
+Content-Type: application/json
+
+{
+    "data": "2025-06-12T13:00:00.000Z",
+    "usuario": { "id": 5},
+    "profissional": { "id": 1},
+    "servicos": [
+        { "id": 1},
+        { "id": 2}
+    ]
+}
+
+###
+GET http://127.0.0.1:4000/agendamentos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibm9tZSI6IkFuZGVyIENhcnZhbGhvIiwiZW1haWwiOiJhbmRlckBtYWlsLmNvbSIsInRlbGVmb25lIjoiKDE1KSAzNjUyMTIzMjQiLCJjZWx1bGFyIjoiKDE1KSAzNjUyMTIzMjQiLCJjbnBqX2NwZiI6IjI3Mzk4NzQ0ODYwIiwiYWRtaW5pc3RyYWRvciI6dHJ1ZSwiaWF0IjoxNzQ4OTAyNjYwLCJleHAiOjE3NTAxOTg2NjB9.SQqIGSYWIsxap0awmW4SuVgXeQYx1mtwPZB9K2Ydsx0
+
+###
+GET http://127.0.0.1:4000/agendamentos/1/2025-06-12
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibm9tZSI6IkFuZGVyIENhcnZhbGhvIiwiZW1haWwiOiJhbmRlckBtYWlsLmNvbSIsInRlbGVmb25lIjoiKDE1KSAzNjUyMTIzMjQiLCJjZWx1bGFyIjoiKDE1KSAzNjUyMTIzMjQiLCJjbnBqX2NwZiI6IjI3Mzk4NzQ0ODYwIiwiYWRtaW5pc3RyYWRvciI6dHJ1ZSwiaWF0IjoxNzQ4OTAyNjYwLCJleHAiOjE3NTAxOTg2NjB9.SQqIGSYWIsxap0awmW4SuVgXeQYx1mtwPZB9K2Ydsx0
+
+###
+DELETE http://127.0.0.1:4000/agendamentos/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibm9tZSI6IkFuZGVyIENhcnZhbGhvIiwiZW1haWwiOiJhbmRlckBtYWlsLmNvbSIsInRlbGVmb25lIjoiKDE1KSAzNjUyMTIzMjQiLCJjZWx1bGFyIjoiKDE1KSAzNjUyMTIzMjQiLCJjbnBqX2NwZiI6IjI3Mzk4NzQ0ODYwIiwiYWRtaW5pc3RyYWRvciI6dHJ1ZSwiaWF0IjoxNzQ4OTAyNjYwLCJleHAiOjE3NTAxOTg2NjB9.SQqIGSYWIsxap0awmW4SuVgXeQYx1mtwPZB9K2Ydsx0
