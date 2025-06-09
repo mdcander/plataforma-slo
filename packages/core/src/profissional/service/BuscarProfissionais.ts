@@ -7,7 +7,6 @@ export default class BuscarProfissionais implements CasoDeUso<void, Profissional
     
     constructor(
         private readonly repo: RepositorioProfissional,
-        
     ){}
 
     async executar(): Promise<Profissional[]> {
