@@ -8,7 +8,7 @@ export interface CampoProfissionalProps
   > {
   label?: string;
   value: Profissional | null;
-  onChange: (value: Profissional) => void;
+  onChange: (value: Profissional | null) => void;
 }
 
 export default function CampoProfissional(props: CampoProfissionalProps) {
@@ -16,12 +16,8 @@ export default function CampoProfissional(props: CampoProfissionalProps) {
 
   function onChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const id = +e.target.value;
-    const profissional = profissionais.find(
-      (profissional) => profissional.id === id
-    );
-    if (profissional) {
-      props.onChange(profissional);
-    }
+    const profissional = profissionais.find( (profissional) => profissional.id === id ) ?? null;
+    props.onChange(profissional);
   }
 
   return profissionais ? (
@@ -29,9 +25,10 @@ export default function CampoProfissional(props: CampoProfissionalProps) {
       {props.label && <span>{props.label}</span>}
       <select
         {...props}
-        value={props.value?.id ?? profissionais[0].id}
+        value={props.value?.id ?? ''}
         onChange={onChange}
       >
+        <option value="">Selecione um Profissional</option>
         {profissionais.map((profissional) => {
           return (
             <option key={profissional.id} value={profissional.id}>

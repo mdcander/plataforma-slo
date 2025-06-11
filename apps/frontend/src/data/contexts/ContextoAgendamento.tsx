@@ -7,11 +7,11 @@ import { Profissional, Servico } from "@slo/core";
 export interface ContextoAgendamentoProps {
     profissional: Profissional | null
     servicos: Servico[]
-    data: Date
+    data: Date | null
     agendar: () => Promise<void>
-    selecionarProfissional: (profissional: Profissional) => void
+    selecionarProfissional: (profissional: Profissional | null) => void
     selecionarServicos: (servicos: Servico[]) => void
-    selecionarData: (data: Date) => void
+    selecionarData: (data: Date | null) => void
 }
 
 const ContextoAgendamento = createContext<ContextoAgendamentoProps>({} as any) ;
@@ -21,7 +21,7 @@ export function ProvedorAgendamento(props: any){
     const { usuario } = useSessao()
     const [ profissional, setProfissional ] = useState<Profissional | null>(null)
     const [ servicos, setServicos ] = useState<Servico[]>([])
-    const [ data, setData ] = useState<Date>(new Date())
+    const [ data, setData ] = useState<Date | null>(null)
 
     async function agendar() {
         await httpPost('/agendamentos', {

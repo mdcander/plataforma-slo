@@ -9,7 +9,7 @@ export interface CampoDataHoraProps
   label?: string;
   value: Date | null;
   apenasNoFuturo?: Boolean;
-  onChange: (value: Date) => void;
+  onChange: (value: Date | null) => void;
 }
 
 export default function CampoDataHora(props: CampoDataHoraProps) {
