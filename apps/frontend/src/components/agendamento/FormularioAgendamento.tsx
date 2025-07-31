@@ -27,7 +27,7 @@ export default function FormulárioAgendamento(){
                 acao={agendar} 
                 labelAcao="Agendar"
                 >
-                <CampoProfissional className="input" label="Profissional" value={ profissional } onChange={selecionarProfissional}></CampoProfissional>
+                <CampoProfissional className="input" label="Selecione os Profissionais" value={ profissional } onChange={selecionarProfissional}></CampoProfissional>
                 <CampoServicos
                     className="input"
                     label="Serviços"
@@ -36,11 +36,6 @@ export default function FormulárioAgendamento(){
                 ></CampoServicos>
                 <CampoDataHora label="Data e Hora" value={data} onChange={selecionarData} className="input" apenasNoFuturo={true} />
             </Passos>
-            <div>
-                <button className="button bg-blue-600" onClick={agendar}>
-                    Agendar
-                </button>
-            </div>
         </div>
         
     )

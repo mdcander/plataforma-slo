@@ -8,7 +8,7 @@ export interface CabecalhoComTituloProps {
 
 export default function CabecalhoComTitulo(props: CabecalhoComTituloProps) {
     return (
-        <div className="relative h-[180px]">
+        <div className="relative h-[160px]">
             <Image src="/banners/livros.webp" fill alt="SLO" className="object-cover" />
             <div className="flex flex-col absolute top-0 left-0 w-full h-full bg-black/70">
                 <Cabecalho />

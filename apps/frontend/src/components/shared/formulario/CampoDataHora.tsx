@@ -1,5 +1,6 @@
-
-
+import { DateUtils } from "@slo/core";
+import CampoDia from "./CampoDia";
+import CampoHorario from "./CampoHorario";
 
 export interface CampoDataHoraProps
   extends Omit<
@@ -13,22 +14,11 @@ export interface CampoDataHoraProps
 }
 
 export default function CampoDataHora(props: CampoDataHoraProps) {
-  
-  function onChange(e: React.ChangeEvent<HTMLInputElement>) {
-    props.onChange( new Date(`${e.target.value}:00Z`))
-  }
-
-  // YYYY-MM--DDTHH:MM
+  const data = props.value ?? DateUtils.hojeComHoraZerada();
   return (
-    <div className="flex flex-col">
-      {props.label && <span>{props.label}</span>}
-      <input 
-        {...props } 
-        type="datetime-local" 
-        value={props.value?.toISOString().substring(0, 16) ?? ''} 
-        onChange={onChange} 
-        min={props.apenasNoFuturo ? new Date().toISOString().substring(0, 16) : undefined}
-      />
+    <div className="flex flex-col gap-6">
+      <CampoDia label="Dias Disponíveis" value={data} onChange={props.onChange} />
+      <CampoHorario label="Horário Disponíveis" value={data} onChange={props.onChange} />
     </div>
   )
 }

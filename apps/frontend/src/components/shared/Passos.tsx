@@ -60,14 +60,14 @@ return(
         <div>{props.children[passoAtual] ?? props.children}</div>
         <div className="flex gap-3">
             <button 
-            onClick={passoAnterior} 
-            disabled={semPassoAnterior()}
-            className={`
-                flex gap-1 items-center button
-                ${semPassoAnterior() ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}
-            `}>
-                <IconChevronLeft size={20}/>
-                <span>Anterior</span>
+                onClick={passoAnterior} 
+                disabled={semPassoAnterior()}
+                className={`
+                    flex gap-1 items-center button
+                    ${semPassoAnterior() ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}
+                `}>
+                    <IconChevronLeft size={20}/>
+                    <span>Anterior</span>
             </button>
             { props.acao && semProximoPasso() ? (
                 <button 

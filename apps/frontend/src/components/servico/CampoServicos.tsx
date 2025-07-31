@@ -1,11 +1,13 @@
 import useServicos from "@/data/hooks/useServicos";
 import { Servico } from "@slo/core";
 
-export interface CampoServicosProps extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "value" | "onChange"> {
+export interface CampoServicosProps extends 
+    Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "value" | "onChange"> {
     label?: string
     value: Servico[]
     onChange: (value: Servico[]) => void
 }
+
 
 export default function CampoServicos(props: CampoServicosProps ){
     
