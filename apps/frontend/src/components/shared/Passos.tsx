@@ -55,7 +55,7 @@ function renderizarLabels(){
 const permiteProximoPasso = props.permiteProximoPasso?.[passoAtual] ?? true
 
 return(
-    <div className="flex flex-col gap-10">
+    <div className="flex-1 flex flex-col gap-10">
         <div>{renderizarLabels()}</div>
         <div>{props.children[passoAtual] ?? props.children}</div>
         <div className="flex gap-3">

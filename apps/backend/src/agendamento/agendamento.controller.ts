@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
-import { Agendamento, BuscarAgendamentosCliente, BuscarAgendaProfissionalPorDia, ExcluirAgendamento, NovoAgendamento, Usuario } from '@slo/core';
+import { Agendamento, BuscarAgendamentosCliente, BuscarAgendaProfissionalPorDia, ExcluirAgendamento, NovoAgendamento, ObterHorariosOcupados, Usuario } from '@slo/core';
 import { UsuarioLogado } from 'src/shared/usuario.decorator';
 import { AgendamentoPrisma } from './agendamento.prisma';
 
@@ -13,6 +13,16 @@ export class AgendamentoController {
         const agendamento: Agendamento = { ...dadosAgendamento, data: new Date( dadosAgendamento.data)}
         const CasoDeUso = new NovoAgendamento(this.repo);
         await CasoDeUso.executar( { agendamento, usuario });
+    }
+
+    @Get('ocupacao/:profissional/:data')
+    buscarOcupacaoPorProfissionalEData(
+    @Param('profissional') profissional: string,
+    @Param('data') dataParam: string,
+    ) {
+            const casoDeUso = new ObterHorariosOcupados(this.repo);
+            return casoDeUso.executar({ profissionalId: +profissional, data: new Date(dataParam),
+        });
     }
 
     @Get()

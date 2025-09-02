@@ -9,6 +9,8 @@ export interface CampoDataHoraProps
   > {
   label?: string;
   value: Date | null;
+  qtdeHorarios: number;
+  horariosOcupados: string[];
   apenasNoFuturo?: Boolean;
   onChange: (value: Date | null) => void;
 }
@@ -18,7 +20,7 @@ export default function CampoDataHora(props: CampoDataHoraProps) {
   return (
     <div className="flex flex-col gap-6">
       <CampoDia label="Dias Disponíveis" value={data} onChange={props.onChange} />
-      <CampoHorario label="Horário Disponíveis" value={data} onChange={props.onChange} />
+      <CampoHorario label="Horário Disponíveis" value={data} onChange={props.onChange} qtdeHorarios={props.qtdeHorarios} horariosOcupados={props.horariosOcupados} />
     </div>
   )
 }

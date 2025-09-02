@@ -3,26 +3,30 @@ import CampoProfissional from "../profissional/CampoProfissional";
 import CampoDataHora from "../shared/formulario/CampoDataHora";
 import useAgendamento from "@/data/hooks/useAgendamento";
 import Passos from "../shared/Passos";
+import Sumario from "./Sumario";
 
 export default function FormulárioAgendamento(){
     const {
         profissional,
         servicos,
         data,
+        horariosOcupados,
         selecionarProfissional,
         selecionarServicos,
         selecionarData,
         agendar,
+        podeAgendar,
+        qtdeHorarios,
     } = useAgendamento()
 
     return (
-        <div className="flex flex-col gap-5">
+        <div className="flex gap-5">
             <Passos 
                 labels={['Selecione o Profissional', 'Selecione os Serviços', 'Escolha o Horário']}
                 permiteProximoPasso={[
                     !!profissional,
                     servicos.length > 0,
-                    !!data
+                    podeAgendar()
                 ]}
                 acao={agendar} 
                 labelAcao="Agendar"
@@ -34,8 +38,9 @@ export default function FormulárioAgendamento(){
                     value={servicos}
                     onChange={selecionarServicos}
                 ></CampoServicos>
-                <CampoDataHora label="Data e Hora" value={data} onChange={selecionarData} className="input" apenasNoFuturo={true} />
+                <CampoDataHora label="Data e Hora" value={data} onChange={selecionarData} horariosOcupados={horariosOcupados} className="input" apenasNoFuturo={true} qtdeHorarios={qtdeHorarios()} />
             </Passos>
+            <Sumario />
         </div>
         
     )

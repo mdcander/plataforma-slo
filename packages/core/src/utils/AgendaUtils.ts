@@ -8,8 +8,8 @@ export default class AgendaUtils {
         }
     }
 
-    static duracaoTotal(servicos: { qtdeSlots: number}[]){
-        const duracao = servicos.reduce((total, servico) => total + servico.qtdeSlots * 15, 0)
+    static duracaoTotal(servicos: { qtdSlots: number}[]){
+        const duracao = servicos.reduce((total, servico) => total + servico.qtdSlots * 15, 0)
         const horas = Math.floor(duracao / 60)
         const minutos = duracao % 60
         return `${horas}h ${minutos.toString().padStart(2, '0')}m`

@@ -11,7 +11,7 @@ export const servicos: Servico[] = [
         id: 2,
         nome: 'Consulta ao administrativo',
         descricao: 'Consulta ao nosso setor administrativo.',
-        qtdSlots: 1,
+        qtdSlots: 2,
     },
     {
         id: 3,

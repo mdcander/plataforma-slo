@@ -21,4 +21,11 @@ export default class DateUtils {
         }
         return dias
     }
+
+    static aplicarHorario( data: Date, horario: string) {
+        const novaData = new Date(data)
+        const [hora, minuto] = horario.split(':').map(Number)
+        novaData.setHours(hora, minuto, 0, 0)
+        return novaData
+    }
 }
